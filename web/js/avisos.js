@@ -1,0 +1,26 @@
+/* Avisos de ejemplo (DEMO).
+ * Reemplazar por datos reales: ver obtenerAvisos() en app.js.
+ * Cada aviso:
+ *  id, titulo, zona (slug), ambientes, dormitorios, banos, m2,
+ *  precio, moneda ("ARS" | "USD"), expensas (opcional, ARS),
+ *  fuente (nombre del portal), url (enlace al aviso original), destacados[], tono (0-5)
+ */
+window.AVISOS_DEMO = true;
+window.AVISOS = [
+  { id: "a1",  titulo: "Monoambiente luminoso con balcón",      zona: "centro",        ambientes: 1, dormitorios: 0, banos: 1, m2: 34,  precio: 420000,  moneda: "ARS", expensas: 60000,  fuente: "Zonaprop",     url: "https://www.zonaprop.com.ar/", destacados: ["Balcón", "Amoblado"],        tono: 0 },
+  { id: "a2",  titulo: "2 ambientes a estrenar en Pichincha",   zona: "pichincha",     ambientes: 2, dormitorios: 1, banos: 1, m2: 48,  precio: 560000,  moneda: "ARS", expensas: 85000,  fuente: "Argenprop",    url: "https://www.argenprop.com/",   destacados: ["A estrenar", "Cochera"],     tono: 1 },
+  { id: "a3",  titulo: "Departamento 3 ambientes con terraza",  zona: "echesortu",     ambientes: 3, dormitorios: 2, banos: 1, m2: 72,  precio: 780000,  moneda: "ARS", expensas: 95000,  fuente: "Mercado Libre", url: "https://inmuebles.mercadolibre.com.ar/", destacados: ["Terraza", "Parrilla"], tono: 2 },
+  { id: "a4",  titulo: "Monoambiente cerca de la Facultad",     zona: "alberdi",       ambientes: 1, dormitorios: 0, banos: 1, m2: 30,  precio: 360000,  moneda: "ARS", expensas: 40000,  fuente: "Zonaprop",     url: "https://www.zonaprop.com.ar/", destacados: ["Cerca de facultad"],         tono: 3 },
+  { id: "a5",  titulo: "2 ambientes con vista al río",          zona: "arroyito",      ambientes: 2, dormitorios: 1, banos: 1, m2: 55,  precio: 650000,  moneda: "ARS", expensas: 90000,  fuente: "Argenprop",    url: "https://www.argenprop.com/",   destacados: ["Vista al río", "Balcón"],    tono: 4 },
+  { id: "a6",  titulo: "Casa 4 ambientes con jardín y cochera", zona: "fisherton",     ambientes: 4, dormitorios: 3, banos: 2, m2: 160, precio: 1400000, moneda: "ARS",                   fuente: "Mercado Libre", url: "https://inmuebles.mercadolibre.com.ar/", destacados: ["Jardín", "Cochera", "Pet friendly"], tono: 5 },
+  { id: "a7",  titulo: "3 ambientes en Parque España",          zona: "parque-espana", ambientes: 3, dormitorios: 2, banos: 2, m2: 85,  precio: 850000,  moneda: "ARS", expensas: 110000, fuente: "Zonaprop",     url: "https://www.zonaprop.com.ar/", destacados: ["Amenities", "Seguridad 24h"], tono: 1 },
+  { id: "a8",  titulo: "2 ambientes en el corazón del Centro",  zona: "centro",        ambientes: 2, dormitorios: 1, banos: 1, m2: 50,  precio: 480,     moneda: "USD", expensas: 70000,  fuente: "Argenprop",    url: "https://www.argenprop.com/",   destacados: ["Luminoso", "Ascensor"],      tono: 2 },
+  { id: "a9",  titulo: "Monoambiente a estrenar en Abasto",     zona: "abasto",        ambientes: 1, dormitorios: 0, banos: 1, m2: 32,  precio: 390000,  moneda: "ARS", expensas: 50000,  fuente: "Mercado Libre", url: "https://inmuebles.mercadolibre.com.ar/", destacados: ["A estrenar"],        tono: 4 },
+  { id: "a10", titulo: "Casa 5 ambientes en Martin",            zona: "martin",        ambientes: 5, dormitorios: 4, banos: 2, m2: 210, precio: 1900000, moneda: "ARS",                   fuente: "Zonaprop",     url: "https://www.zonaprop.com.ar/", destacados: ["Patio", "Quincho", "Cochera"], tono: 0 },
+  { id: "a11", titulo: "3 ambientes con balcón corrido",        zona: "pichincha",     ambientes: 3, dormitorios: 2, banos: 1, m2: 68,  precio: 720000,  moneda: "ARS", expensas: 88000,  fuente: "Argenprop",    url: "https://www.argenprop.com/",   destacados: ["Balcón corrido", "Pet friendly"], tono: 3 },
+  { id: "a12", titulo: "Departamento 2 ambientes en Luis Agote", zona: "luis-agote",   ambientes: 2, dormitorios: 1, banos: 1, m2: 46,  precio: 520000,  moneda: "ARS", expensas: 65000,  fuente: "Mercado Libre", url: "https://inmuebles.mercadolibre.com.ar/", destacados: ["Cochera", "Luminoso"], tono: 5 },
+  { id: "a13", titulo: "3 ambientes premium en Echesortu",      zona: "echesortu",     ambientes: 3, dormitorios: 2, banos: 2, m2: 90,  precio: 700,     moneda: "USD", expensas: 120000, fuente: "Zonaprop",     url: "https://www.zonaprop.com.ar/", destacados: ["Amenities", "Gimnasio", "SUM"], tono: 2 },
+  { id: "a14", titulo: "2 ambientes en La Florida",             zona: "la-florida",    ambientes: 2, dormitorios: 1, banos: 1, m2: 52,  precio: 540000,  moneda: "ARS", expensas: 70000,  fuente: "Argenprop",    url: "https://www.argenprop.com/",   destacados: ["Cerca del río", "Balcón"],    tono: 1 },
+  { id: "a15", titulo: "Monoambiente amoblado en Barrio Sur",   zona: "barrio-sur",    ambientes: 1, dormitorios: 0, banos: 1, m2: 28,  precio: 340000,  moneda: "ARS", expensas: 35000,  fuente: "Mercado Libre", url: "https://inmuebles.mercadolibre.com.ar/", destacados: ["Amoblado"],           tono: 3 },
+  { id: "a16", titulo: "4 ambientes en Refinería con patio",    zona: "refineria",     ambientes: 4, dormitorios: 3, banos: 2, m2: 130, precio: 1100000, moneda: "ARS",                   fuente: "Zonaprop",     url: "https://www.zonaprop.com.ar/", destacados: ["Patio", "Parrilla"],         tono: 4 }
+];

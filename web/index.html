@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Alquilo Ya-Rosario | Alquileres en Rosario</title>
+  <meta name="description" content="Encontrá alquileres en Rosario por zona, ambientes y precio. Sin registro.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%2300d4aa'/%3E%3Cstop offset='1' stop-color='%236c5cff'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='18' fill='url(%23g)'/%3E%3Cpath d='M32 14 14 29v21h14V38h8v12h14V29z' fill='white'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <defs>
+      <linearGradient id="gradLogo" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" stop-color="#00d4aa"/>
+        <stop offset="1" stop-color="#6c5cff"/>
+      </linearGradient>
+      <symbol id="logo" viewBox="0 0 64 64">
+        <rect width="64" height="64" rx="18" fill="url(#gradLogo)"/>
+        <path d="M32 13 13 29v22h15V39h8v12h15V29z" fill="#fff"/>
+        <circle cx="32" cy="30" r="4.5" fill="url(#gradLogo)"/>
+      </symbol>
+    </defs>
+  </svg>
+
+  <header class="nav">
+    <div class="wrap nav__inner">
+      <a class="brand" href="#top" aria-label="Alquilo Ya-Rosario, inicio">
+        <svg class="brand__logo" viewBox="0 0 64 64"><use href="#logo"/></svg>
+        <span class="brand__name">Alquilo Ya<b>-Rosario</b></span>
+      </a>
+      <nav class="nav__links">
+        <a href="#avisos">Alquileres</a>
+        <a href="#portales">Portales</a>
+        <a href="#consejos">Consejos</a>
+      </nav>
+      <button type="button" id="verFavs" class="chip chip--fav" aria-pressed="false">
+        <span aria-hidden="true">♥</span> Favoritos <span id="cantFavs" class="chip__n">0</span>
+      </button>
+    </div>
+  </header>
+
+  <section class="hero" id="top">
+    <div class="hero__glow hero__glow--a"></div>
+    <div class="hero__glow hero__glow--b"></div>
+    <div class="wrap hero__inner">
+      <p class="eyebrow">Rosario, Santa Fe</p>
+      <h1>Tu próximo hogar en Rosario, <span>sin vueltas</span>.</h1>
+      <p class="hero__sub">Filtrá por zona, ambientes y presupuesto. Sin registrarte y con avisos de fuentes confiables.</p>
+
+      <form id="filtros" class="search" autocomplete="off">
+        <div class="search__field">
+          <label for="zona">Zona</label>
+          <select id="zona" name="zona"><option value="">Toda Rosario</option></select>
+        </div>
+        <div class="search__field">
+          <label for="ambientes">Ambientes</label>
+          <select id="ambientes" name="ambientes">
+            <option value="">Todos</option>
+            <option value="1">Monoambiente</option>
+            <option value="2">2 ambientes</option>
+            <option value="3">3 ambientes</option>
+            <option value="4">4 ambientes</option>
+            <option value="5">5 o más</option>
+          </select>
+        </div>
+        <div class="search__field">
+          <label for="moneda">Moneda</label>
+          <select id="moneda" name="moneda">
+            <option value="ARS">Pesos (ARS)</option>
+            <option value="USD">Dólares (USD)</option>
+          </select>
+        </div>
+        <div class="search__field">
+          <label for="min">Desde</label>
+          <input id="min" name="min" type="number" min="0" step="1000" inputmode="numeric" placeholder="Sin mínimo">
+        </div>
+        <div class="search__field">
+          <label for="max">Hasta</label>
+          <input id="max" name="max" type="number" min="0" step="1000" inputmode="numeric" placeholder="Sin máximo">
+        </div>
+        <button type="submit" class="btn btn--primary">Buscar</button>
+      </form>
+      <p id="error" class="error" role="alert" hidden></p>
+    </div>
+  </section>
+
+  <main class="wrap">
+    <section id="avisos" class="avisos">
+      <div class="avisos__head">
+        <div>
+          <h2>Alquileres disponibles</h2>
+          <p id="resumen" class="muted"></p>
+        </div>
+        <div class="avisos__tools">
+          <label class="sort">
+            <span>Ordenar</span>
+            <select id="orden">
+              <option value="relevancia">Más relevantes</option>
+              <option value="precio-asc">Menor precio</option>
+              <option value="precio-desc">Mayor precio</option>
+              <option value="m2-desc">Mayor superficie</option>
+            </select>
+          </label>
+          <button type="button" id="limpiar" class="chip">Limpiar filtros</button>
+        </div>
+      </div>
+
+      <div class="demo-banner" id="demoBanner" hidden>
+        <strong>Datos de ejemplo.</strong> Los avisos que ves son de demostración; se reemplazan por avisos reales cuando se conecte la fuente de datos.
+      </div>
+
+      <div id="grilla" class="grilla" aria-live="polite"></div>
+      <div id="vacio" class="vacio" hidden>
+        <div class="vacio__icon" aria-hidden="true">🔎</div>
+        <h3>No encontramos alquileres con esos filtros</h3>
+        <p>Probá ampliando el rango de precio o eligiendo otra zona.</p>
+      </div>
+    </section>
+
+    <section id="portales" class="portales">
+      <h2>Seguí buscando en los portales</h2>
+      <p class="muted">Abrimos cada portal con tus filtros ya aplicados.</p>
+      <div id="portalesGrid" class="portales__grid"></div>
+    </section>
+
+    <section id="consejos" class="consejos">
+      <h2>Alquilá tranquilo</h2>
+      <div class="consejos__grid">
+        <article class="tip"><span class="tip__n">1</span><h3>Precios sospechosos</h3><p>Desconfiá de valores muy por debajo del mercado o de quien pide seña sin mostrar el lugar.</p></article>
+        <article class="tip"><span class="tip__n">2</span><h3>Visitá en persona</h3><p>Confirmá que quien lo ofrece es el titular o una inmobiliaria matriculada.</p></article>
+        <article class="tip"><span class="tip__n">3</span><h3>Leé el contrato</h3><p>Revisá duración, ajuste, depósito y quién paga expensas y servicios.</p></article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap footer__inner">
+      <a class="brand brand--sm" href="#top">
+        <svg class="brand__logo" viewBox="0 0 64 64"><use href="#logo"/></svg>
+        <span class="brand__name">Alquilo Ya<b>-Rosario</b></span>
+      </a>
+      <p>© <span id="anio"></span> Buscador independiente. No publicamos avisos ni intermediamos en alquileres.</p>
+    </div>
+  </footer>
+
+  <script src="js/config.js"></script>
+  <script src="js/avisos.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
